@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-dump
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: mongo-dump
+        image: mongo:3.6.18
+        env:
+        - name: HOST
+          value: ""
+        - name: DATABASE
+          value: ""
+        - name: OUTDIR
+          value: ""
